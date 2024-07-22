@@ -1,0 +1,73 @@
+.carteirinha {
+    background: linear-gradient(to bottom, #f9f9d4, #006400); /* Degradê do amarelo claro ao verde escuro */
+    border-radius: 15px;
+    padding: 20px;
+    width: 500px; /* Ajuste da largura para um layout mais espaçoso */
+    margin: 20px auto;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 30px;
+}
+
+.carteirinha h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.info {
+    flex: 1; /* Ajuste para ocupar todo o espaço disponível */
+}
+
+.info p {
+    background-color: white;
+    font-weight: bold;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.carteirinha-logo-foto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px; /* Espaçamento para separar do conteúdo principal */
+}
+
+.carteirinha-logo, .carteirinha-foto {
+    background-color: white;
+    color: black;
+    padding: 10px; /* Reduzir o padding para caber melhor */
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 80px; /* Ajuste da largura */
+    height: 80px; /* Ajuste da altura */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.matricula-container {
+    display: flex;
+    justify-content: center;
+}
+
+.matricula {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    width: 60%; /* Ajuste da largura */
+    text-align: center;
+}
