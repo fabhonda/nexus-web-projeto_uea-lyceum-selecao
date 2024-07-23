@@ -1,0 +1,70 @@
+.pesquisa-extensao-container {
+    width: 90%; /* Aumentar a largura da tabela */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    text-align: center;
+    color: white; /* Cor do texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente os filhos */
+    justify-content: flex-start; /* Alinha ao topo */
+    min-height: 100vh; /* Altura mínima para preencher a tela */
+    padding-top: 100px; /* Adiciona mais espaço acima */
+}
+
+.pesquisa-extensao-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    color: white; /* Cor do texto */
+}
+
+.pesquisa-extensao-table th,
+.pesquisa-extensao-table td {
+    border: 1px solid #444;
+    padding: 8px;
+    word-break: break-word; /* Permite a quebra de palavras longas */
+    white-space: normal; /* Permite a quebra de linha */
+    text-align: left; /* Alinha o texto à esquerda para melhorar a leitura */
+}
+
+.pesquisa-extensao-table th {
+    background-color: #333; /* Cor de fundo do cabeçalho */
+    color: white; /* Cor do texto do cabeçalho */
+}
+
+.pesquisa-extensao-table tr:nth-child(even) {
+    background-color: #555; /* Cor de fundo das linhas pares */
+}
+
+.pesquisa-extensao-table tr:nth-child(odd) {
+    background-color: #444; /* Cor de fundo das linhas ímpares */
+}
+
+.pesquisa-extensao-table tr:hover {
+    background-color: #666; /* Cor de fundo ao passar o mouse */
+}
+
+.pesquisa-extensao-table .col-id {
+    width: 5%; /* Define uma largura fixa menor para a coluna ID */
+}
+
+.pesquisa-extensao-table .col-descricao {
+    width: 50%; /* Define uma largura maior para a coluna Descrição */
+}
+
+.pesquisa-extensao-table .col-titulo,
+.pesquisa-extensao-table .col-data {
+    width: 15%; /* Define uma largura intermediária para outras colunas */
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto; /* Centraliza horizontalmente */
+}
+
+.pesquisa-extensao-title {
+    margin-top: 20px; /* Adiciona espaço acima do título */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    font-size: 2em; /* Aumenta o tamanho da fonte */
+}

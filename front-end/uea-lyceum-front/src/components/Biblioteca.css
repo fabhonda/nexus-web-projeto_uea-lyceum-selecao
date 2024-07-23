@@ -1,0 +1,41 @@
+.biblioteca-container {
+    width: 80%;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    text-align: center;
+    color: white; /* Cor do texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente os filhos */
+    justify-content: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Altura mínima para preencher a tela */
+}
+
+.biblioteca-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    color: white; /* Cor do texto */
+}
+
+.biblioteca-table th,
+.biblioteca-table td {
+    border: 1px solid #444;
+    padding: 8px;
+}
+
+.biblioteca-table th {
+    background-color: #333; /* Cor de fundo do cabeçalho */
+    color: white; /* Cor do texto do cabeçalho */
+}
+
+.biblioteca-table tr:nth-child(even) {
+    background-color: #555; /* Cor de fundo das linhas pares */
+}
+
+.biblioteca-table tr:nth-child(odd) {
+    background-color: #444; /* Cor de fundo das linhas ímpares */
+}
+
+.biblioteca-table tr:hover {
+    background-color: #666; /* Cor de fundo ao passar o mouse */
+}

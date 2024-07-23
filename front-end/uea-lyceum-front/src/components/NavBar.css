@@ -1,51 +1,59 @@
 .navbar {
-    background-color: #333;
-    color: white;
-    padding: 1rem 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-  }
-  
-  .navbar ul li {
-    margin-right: 1rem;
-  }
-  
-  .navbar ul li:last-child {
-    margin-left: auto; /* Empurra o último item (botão de logout) para a extrema direita */
-  }
-  
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-  }
-  
-  .logo {
-    max-width: 250px;
-    height: auto;
-    margin-left: 20px;
-  }
-  
-  .logout-button {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    margin-right: 20px;
-  }  
+  background-color: #333;
+  color: white;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.navbar ul li {
+  margin-right: 1rem;
+}
+
+.navbar ul li:last-child {
+  margin-left: auto; /* Empurra o último item (botão de logout) para a extrema direita */
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.logo-container {
+  margin-left: 20px;
+}
+
+.logo {
+  max-width: 250px;
+  height: auto;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.navbar a.active {
+  background-color: #555; /* Cor de fundo para o item ativo */
+  border-radius: 5px; /* Bordas arredondadas para o item ativo */
+}
