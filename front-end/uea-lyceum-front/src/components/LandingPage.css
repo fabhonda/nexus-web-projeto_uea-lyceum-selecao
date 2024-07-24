@@ -1,9 +1,9 @@
 /* LandingPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #121212;
+  font-family: Poppins, sans-serif;
   color: #ffffff;
   align-items: start;
   justify-content: start; 
@@ -15,8 +15,7 @@ body {
   align-items: start;
   justify-content: start;
   width: 100vw;
-  
-  background-color: aliceblue;
+  background:white;
 }
 
 .section {
@@ -26,10 +25,9 @@ body {
   width: 100%;
   margin: 40px 0; /* Adiciona espaçamento na parte superior e inferior */
   padding: 20px;
-  border-radius: 10px;
-  box-sizing: border-box;
-  background-color: #4caf50;
-  border: 1px solid white;
+  /* border-radius: 10px; */
+  box-sizing: border-box; 
+
 }
 
 .text-container, .image-container {
@@ -41,6 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color:#121212;
 }
 
 .image-container {
@@ -60,17 +59,35 @@ body {
   gap: 10px;
 }
 
-.landing-button {
+.landing-button-login {
   padding: 10px 20px;
   font-size: 16px;
-  color: white;
-  background-color: #4caf50;
+  color: black;
+  background-color: rgb(16, 195, 46);
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.landing-button:hover {
-  background-color: #45a049;
+.landing-button-signup {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  background-color: rgba(166, 166, 166, 0.407);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+/* .landing-button:hover {
+  background-color: #6dff68;
+} */
+
+.h2-text{
+  color: grey;
+  font-weight: normal;
+  font-size: 16px;
 }

@@ -12,6 +12,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**") // Permite requisições para todos os endpoints
                 .allowedOrigins("http://localhost:5174") // Permite requisições do seu front-end
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .allowedHeaders("*");
+                .allowedHeaders("*");   
     }
 }

@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Aluno.css';
+import logouea from '../../img/uealogo.png'; // Importe a logo
 
 const Aluno = () => {
     const [aluno, setAluno] = useState(null);
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    useEffect(() => {
+        document.body.classList.add('carteirinha-body');
+        return () => {
+            document.body.classList.remove('carteirinha-body');
+        };
+    }, []);
 
     useEffect(() => {
         const fetchAluno = async () => {
@@ -30,21 +39,35 @@ const Aluno = () => {
     }
 
     return (
-        <div className="carteirinha">
-            <h1>Carteira de Estudante</h1>
-            <div className="info-container">
-                <div className="info">
-                    <p>Nome: {aluno.nome}</p>
-                    <p>Curso: {aluno.curso}</p>
-                    <p>Unidade: {aluno.unidade}</p>
+        <div className={`carteirinha ${isFlipped ? 'flipped' : ''}`}
+            onMouseEnter={() => setIsFlipped(true)}
+            onMouseLeave={() => setIsFlipped(false)}>
+            <div className="carteirinha-inner">
+                <div className="carteirinha-front">
+                    <div className="carteirinha-header">
+                        <h1 className='h1-carteira'>Carteira de Estudante</h1>
+                        <img src={logouea} alt="Logo UEA" className="carteirinha-logo" />
+                        <div className="foto">Foto</div>
+                    </div>
+                    <div className="info-container">
+                        <div className="info">
+                            <p><span className="label">Nome:</span> <span className="value">{aluno.nome}</span></p>
+                        </div>
+                        <div className="info">
+                            <p><span className="label">Curso:</span> <span className="value">{aluno.curso}</span></p>
+                        </div>
+                        <div className="info">
+                            <p><span className="label">Unidade:</span> <span className="value">{aluno.unidade}</span></p>
+                        </div>
+                        <div className="info">
+                            <p><span className="label">Matrícula:</span> <span className="value">{aluno.matricula}</span></p>
+                        </div>
+                    </div>
                 </div>
-                <div className="carteirinha-logo-foto">
-                    <div className="carteirinha-logo">Logo</div>
-                    <div className="carteirinha-foto">Foto</div>
+                <div className="carteirinha-back">
+                    <h2>Verso da Carteirinha</h2>
+                    {/* Adicione aqui os dados adicionais que você quer mostrar no verso */}
                 </div>
-            </div>
-            <div className="matricula-container">
-                <p className="matricula">Matrícula: {aluno.matricula}</p>
             </div>
         </div>
     );

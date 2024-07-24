@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import 'chart.js/auto'; // Import necessário para evitar problemas com tree-shaking
 
-const ProjetosChart = ({ projetos, forPDF }) => {
+const ProjetosChart = ({ projetos }) => {
     const [chartData, setChartData] = useState({});
 
     useEffect(() => {
@@ -54,22 +54,22 @@ const ProjetosChart = ({ projetos, forPDF }) => {
         scales: {
             x: {
                 ticks: {
-                    color: forPDF ? 'black' : 'white', // Define a cor das fontes no eixo X
+                    color: 'black', // Define a cor das fontes no eixo X
                 },
                 title: {
                     display: true,
                     text: 'Ano de Início',
-                    color: forPDF ? 'black' : 'white', // Define a cor do título do eixo X
+                    color: 'black', // Define a cor do título do eixo X
                 }
             },
             y: {
                 ticks: {
-                    color: forPDF ? 'black' : 'white', // Define a cor das fontes no eixo Y
+                    color: 'black', // Define a cor das fontes no eixo Y
                 },
                 title: {
                     display: true,
                     text: 'Quantidade de Projetos',
-                    color: forPDF ? 'black' : 'white', // Define a cor do título do eixo Y
+                    color: 'black', // Define a cor do título do eixo Y
                 }
             },
         },
@@ -77,9 +77,9 @@ const ProjetosChart = ({ projetos, forPDF }) => {
 
     return (
         <div>
-            <h2 style={{ color: forPDF ? 'black' : 'white' }}>Quantidade de Projetos por Ano de Início</h2>
+            <h2 style={{ color: 'black' }}>Quantidade de Projetos por Ano de Início</h2>
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                {chartData.labels ? <Bar data={chartData} options={options} /> : <p style={{ color: forPDF ? 'black' : 'white' }}>Sem dados para mostrar</p>}
+                {chartData.labels ? <Bar data={chartData} options={options} /> : <p style={{ color: 'black' }}>Sem dados para mostrar</p>}
             </div>
         </div>
     );

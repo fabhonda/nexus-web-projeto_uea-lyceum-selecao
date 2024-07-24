@@ -1,73 +1,112 @@
-.carteirinha {
-    background: linear-gradient(to bottom, #f9f9d4, #006400); /* Degradê do amarelo claro ao verde escuro */
+body.carteirinha-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    background-color: #f0f0f0; /* Cor de fundo da página */
+  }
+  
+  .carteirinha {
+    width: 650px; 
+    height: 450px; 
+    margin: 20px;
+    perspective: 1000px; 
+  }
+  
+  .carteirinha-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 15px;
+  }
+  
+  .carteirinha.flipped .carteirinha-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .carteirinha-front, .carteirinha-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
     border-radius: 15px;
     padding: 20px;
-    width: 500px; /* Ajuste da largura para um layout mais espaçoso */
-    margin: 20px auto;
-    text-align: left;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 30px;
-}
-
-.carteirinha h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.info-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.info {
-    flex: 1; /* Ajuste para ocupar todo o espaço disponível */
-}
-
-.info p {
-    background-color: white;
-    font-weight: bold;
-    color: black;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.carteirinha-logo-foto {
+    z-index: 1;
+    background: linear-gradient(to bottom, #f9f9d4, #006400); 
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
-    margin-left: 20px; /* Espaçamento para separar do conteúdo principal */
-}
-
-.carteirinha-logo, .carteirinha-foto {
+    color: rgb(0, 119, 34); 
+    box-sizing: border-box; 
+  }
+  
+  .carteirinha-front {
+    min-height: 100%; 
+    background-attachment: scroll; 
+  }
+  
+  .carteirinha-back {
+    transform: rotateY(180deg);
+  }
+  
+  .carteirinha-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .carteirinha-header h1 {
+    font-weight: bold;
+  }
+  
+  .carteirinha-logo {
+    width: 120px; 
+    margin-right: 20px;
+  }
+  
+  .foto {
+    width: 160px;
+    height: 160px; 
     background-color: white;
-    color: black;
-    padding: 10px; /* Reduzir o padding para caber melhor */
-    border-radius: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-    width: 80px; /* Ajuste da largura */
-    height: 80px; /* Ajuste da altura */
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.matricula-container {
-    display: flex;
-    justify-content: center;
-}
-
-.matricula {
-    background-color: white;
     color: black;
-    padding: 10px;
+  }
+  
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+    max-height: 300px; /* Ajuste a altura máxima */
+  }
+  
+  .info {
+    background-color: white; 
+    color: black; 
     border-radius: 10px;
-    width: 60%; /* Ajuste da largura */
-    text-align: center;
-}
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box; 
+    flex: 1;
+    max-height: 50px; /* Ajuste a altura máxima */
+    overflow: hidden; /* Garantir que o conteúdo adicional seja oculto */
+  }
+  
+  .label {
+    font-weight: bold; 
+  }
+  
+  .h1-carteira {
+    font-size: 32px;
+  }  

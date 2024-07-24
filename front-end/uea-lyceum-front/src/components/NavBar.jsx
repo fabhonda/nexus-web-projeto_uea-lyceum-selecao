@@ -27,7 +27,7 @@ const Navbar = () => {
                 to="/aluno"
                 className={({ isActive }) => (isActive ? 'active' : '')}
               >
-                Aluno
+                Carteirinha Universitária
               </NavLink>
             </li>
             <li>
@@ -35,7 +35,7 @@ const Navbar = () => {
                 to="/ru"
                 className={({ isActive }) => (isActive ? 'active' : '')}
               >
-                RU
+                Cardápio do RU
               </NavLink>
             </li>
             <li>
@@ -69,7 +69,8 @@ const Navbar = () => {
               Login
             </NavLink>
           </li>
-        )}
+        )
+        }
       </ul>
     </nav>
   );
