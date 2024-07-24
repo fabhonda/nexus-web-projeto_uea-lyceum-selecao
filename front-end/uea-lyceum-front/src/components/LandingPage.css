@@ -74,8 +74,8 @@ body {
   padding: 10px 20px;
   font-size: 16px;
   color: black;
-  background-color: rgba(166, 166, 166, 0.407);
-  border: none;
+  background: none;
+  border: 1px solid rgb(16, 195, 46);
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease;

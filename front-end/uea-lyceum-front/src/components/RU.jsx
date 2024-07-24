@@ -6,6 +6,7 @@ const RU = () => {
     const [cardapios, setCardapios] = useState([]);
 
     useEffect(() => {
+        document.body.classList.add('ru-page'); // Adiciona a classe ao body
         const fetchCardapios = async () => {
             try {
                 const response = await axios.get('http://localhost:8080/api/cardapios');
@@ -16,6 +17,10 @@ const RU = () => {
         };
 
         fetchCardapios();
+
+        return () => {
+            document.body.classList.remove('ru-page'); // Remove a classe ao desmontar o componente
+        };
     }, []);
 
     return (

@@ -6,6 +6,7 @@ const Biblioteca = () => {
     const [livros, setLivros] = useState([]);
 
     useEffect(() => {
+        document.body.classList.add('biblioteca-page'); // Adiciona a classe ao body
         const fetchLivros = async () => {
             try {
                 const response = await axios.get('http://localhost:8080/api/livros');
@@ -16,6 +17,10 @@ const Biblioteca = () => {
         };
 
         fetchLivros();
+
+        return () => {
+            document.body.classList.remove('biblioteca-page'); // Remove a classe ao desmontar o componente
+        };
     }, []);
 
     return (

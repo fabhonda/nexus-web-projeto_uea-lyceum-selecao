@@ -4,7 +4,7 @@ body.carteirinha-body {
     align-items: center;
     width: 100%;
     margin: 0;
-    background-color: #f0f0f0; /* Cor de fundo da página */
+    background-color: white; /* Cor de fundo da página */
   }
   
   .carteirinha {
@@ -25,7 +25,7 @@ body.carteirinha-body {
   }
   
   .carteirinha.flipped .carteirinha-inner {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
   
   .carteirinha-front, .carteirinha-back {
