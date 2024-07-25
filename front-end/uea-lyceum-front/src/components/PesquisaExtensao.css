@@ -1,71 +1,122 @@
+body.pesquisa-extensao-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white;
+}
+
 .pesquisa-extensao-container {
-    width: 90%; /* Aumentar a largura da tabela */
-    margin: 0 auto; /* Centraliza horizontalmente */
+    width: 80%;
+    margin: 0 auto;
     text-align: center;
-    color: #333; /* Cor do texto ajustada para melhor contraste */
+    color: #333;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente os filhos */
-    justify-content: flex-start; /* Alinha ao topo */
-    min-height: 100vh; /* Altura mínima para preencher a tela */
-    padding-top: 100px; /* Adiciona mais espaço acima */
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
 }
 
 .pesquisa-extensao-table {
     width: 100%;
+    max-width: 1000px; /* Defina a largura máxima da tabela */
     border-collapse: collapse;
-    margin: 20px 0;
-    color: #333; /* Cor do texto ajustada */
-    background-color: white; /* Fundo branco */
+    margin: 20px auto; /* Centraliza horizontalmente */
+    color: #333;
+    background-color: white;
 }
 
 .pesquisa-extensao-table th,
 .pesquisa-extensao-table td {
     border: 1px solid #ddd;
     padding: 8px;
-    word-break: break-word; /* Permite a quebra de palavras longas */
-    white-space: normal; /* Permite a quebra de linha */
-    text-align: left; /* Alinha o texto à esquerda para melhorar a leitura */
+    text-align: left;
 }
 
 .pesquisa-extensao-table th {
-    background-color: #f5f5f5; /* Cor de fundo do cabeçalho mais clara */
-    color: #333; /* Cor do texto do cabeçalho */
+    background-color: #f5f5f5;
+    color: #333;
 }
 
 .pesquisa-extensao-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Cor de fundo das linhas pares mais clara */
+    background-color: #f9f9f9;
 }
 
 .pesquisa-extensao-table tr:nth-child(odd) {
-    background-color: #fff; /* Cor de fundo das linhas ímpares branca */
+    background-color: #fff;
 }
 
 .pesquisa-extensao-table tr:hover {
-    background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+    background-color: #e0e0e0;
 }
 
 .pesquisa-extensao-table .col-id {
-    width: 5%; /* Define uma largura fixa menor para a coluna ID */
+    width: 10%;
 }
 
 .pesquisa-extensao-table .col-descricao {
-    width: 50%; /* Define uma largura maior para a coluna Descrição */
+    width: 30%;
 }
 
-.pesquisa-extensao-table .col-titulo,
+.pesquisa-extensao-table .col-titulo {
+    width: 30%;
+}
+
 .pesquisa-extensao-table .col-data {
-    width: 15%; /* Define uma largura intermediária para outras colunas */
+    width: 20%;
+}
+
+.pesquisa-extensao-table .col-acao {
+    width: 10%;
+    text-align: center;
 }
 
 .chart-container {
     width: 100%;
     max-width: 800px;
-    margin: 20px auto; /* Centraliza horizontalmente */
+    margin: 20px auto;
 }
 
 .pesquisa-extensao-title {
-    margin-top: 20px; /* Adiciona espaço acima do título */
-    margin-bottom: 20px; /* Espaçamento inferior */
-    font-size: 2em; /* Aumenta o tamanho da fonte */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.pesquisa-extensao-container div[contenteditable]:focus {
+    outline: none;
+    border-bottom: 1px solid #333;
+}
+
+.download-button-pdf {
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Branco */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
+
+/* Estilo para o campo de data */
+.date-input {
+    border: none;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+    background-color: transparent;
+}
+
+.date-input:focus {
+    outline: none;
+    border-bottom: 1px solid #333;
 }

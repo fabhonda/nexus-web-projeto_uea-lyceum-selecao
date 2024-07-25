@@ -1,8 +1,6 @@
-/* LandingPage.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-body {
-  margin: 0;
+.landing-page {
   font-family: Poppins, sans-serif;
   color: #ffffff;
   align-items: start;
@@ -15,7 +13,7 @@ body {
   align-items: start;
   justify-content: start;
   width: 100vw;
-  background:white;
+  background: white;
 }
 
 .section {
@@ -27,7 +25,6 @@ body {
   padding: 20px;
   /* border-radius: 10px; */
   box-sizing: border-box; 
-
 }
 
 .text-container, .image-container {
@@ -39,7 +36,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color:#121212;
+  color: #121212;
 }
 
 .image-container {
@@ -81,12 +78,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-
-/* .landing-button:hover {
-  background-color: #6dff68;
-} */
-
-.h2-text{
+.h2-text {
   color: grey;
   font-weight: normal;
   font-size: 16px;

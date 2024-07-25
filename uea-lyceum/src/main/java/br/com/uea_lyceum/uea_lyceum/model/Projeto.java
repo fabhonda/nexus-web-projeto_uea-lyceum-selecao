@@ -2,7 +2,8 @@ package br.com.uea_lyceum.uea_lyceum.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.util.Date;
+
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -14,6 +15,10 @@ public class Projeto {
 
     private String titulo;
     private String descricao;
-    private Date dataInicio;
-    private Date dataFim;
+    private LocalDate dataInicio;
+    private LocalDate dataFim;
+
+    @ManyToOne
+    @JoinColumn(name = "estudante_id")
+    private Estudante estudante;
 }

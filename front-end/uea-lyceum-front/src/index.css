@@ -21,7 +21,7 @@ body {
   padding-top:100px ;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  /* align-items: start; */
   justify-content: start; 
   /* place-items: center; */
   width: 100vw;

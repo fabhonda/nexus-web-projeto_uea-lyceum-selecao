@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
-import 'chart.js/auto'; // Import necessário para evitar problemas com tree-shaking
+import 'chart.js/auto';
 
 const ProjetosChart = ({ projetos }) => {
     const [chartData, setChartData] = useState({});
@@ -8,7 +8,9 @@ const ProjetosChart = ({ projetos }) => {
     useEffect(() => {
         if (projetos && projetos.length > 0) {
             const dataMap = projetos.reduce((acc, projeto) => {
-                const year = new Date(projeto.dataInicio).getFullYear();
+                // Use new Date() de maneira que não cause problemas de fuso horário
+                const date = new Date(projeto.dataInicio + 'T00:00:00');
+                const year = date.getFullYear();
                 if (!acc[year]) {
                     acc[year] = 1;
                 } else {
@@ -17,16 +19,14 @@ const ProjetosChart = ({ projetos }) => {
                 return acc;
             }, {});
 
-            const labels = Object.keys(dataMap);
+            const labels = Object.keys(dataMap).sort();
             const data = Object.values(dataMap);
 
-            // Define a paleta de cores
             const colors = [
                 '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF',
                 '#FF9F40', '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'
             ];
 
-            // Mapeia cada ano para uma cor
             const backgroundColors = labels.map((label, index) => colors[index % colors.length]);
 
             setChartData({
@@ -48,28 +48,28 @@ const ProjetosChart = ({ projetos }) => {
         maintainAspectRatio: false,
         plugins: {
             legend: {
-                display: false, // Remove a legenda
+                display: false,
             },
         },
         scales: {
             x: {
                 ticks: {
-                    color: 'black', // Define a cor das fontes no eixo X
+                    color: 'black',
                 },
                 title: {
                     display: true,
                     text: 'Ano de Início',
-                    color: 'black', // Define a cor do título do eixo X
+                    color: 'black',
                 }
             },
             y: {
                 ticks: {
-                    color: 'black', // Define a cor das fontes no eixo Y
+                    color: 'black',
                 },
                 title: {
                     display: true,
                     text: 'Quantidade de Projetos',
-                    color: 'black', // Define a cor do título do eixo Y
+                    color: 'black',
                 }
             },
         },
