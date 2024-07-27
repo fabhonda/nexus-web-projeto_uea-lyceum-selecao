@@ -4,7 +4,7 @@ import ProjetosChart from './ProjetosChart';
 import './PesquisaExtensao.css';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
-import { FaTrash, FaPlus } from 'react-icons/fa';
+import { FaTrash, FaPlus, FaPencilAlt, FaCheck } from 'react-icons/fa';
 
 const PesquisaExtensao = () => {
     const [projetos, setProjetos] = useState([]);
@@ -12,7 +12,7 @@ const PesquisaExtensao = () => {
     const [error, setError] = useState(null);
     const [user, setUser] = useState(null);
     const [forPDF, setForPDF] = useState(false);
-
+    const [editMode, setEditMode] = useState(null);
     const [novoProjeto, setNovoProjeto] = useState({
         titulo: 'Novo Projeto',
         descricao: 'Descrição do Projeto',
@@ -62,6 +62,11 @@ const PesquisaExtensao = () => {
 
     const addProjeto = async () => {
         if (!user) return;
+
+        if (!novoProjeto.dataInicio) {
+            alert('A data de início não pode ser vazia');
+            return;
+        }
 
         try {
             const response = await axios.post(`http://localhost:8080/api/projetos/${user.email}`, {
@@ -126,19 +131,25 @@ const PesquisaExtensao = () => {
         }, 1000);
     };
 
+    const handleEdit = (id) => {
+        setEditMode(id);
+    };
+
+    const handleSave = async (id) => {
+        const projeto = projetos.find(projeto => projeto.id === id);
+        try {
+            await axios.put(`http://localhost:8080/api/projetos/${id}`, projeto);
+            setEditMode(null);
+        } catch (error) {
+            console.error('Erro ao atualizar o projeto:', error);
+        }
+    };
+
     const handleCellEdit = (e, id, field) => {
         const { value } = e.target;
         setProjetos(projetos.map(projeto => 
             projeto.id === id ? { ...projeto, [field]: value } : projeto
         ));
-    };
-
-    const updateProjeto = async (id, field, value) => {
-        try {
-            await axios.put(`http://localhost:8080/api/projetos/${id}`, { [field]: value });
-        } catch (error) {
-            console.error('Erro ao atualizar o projeto:', error);
-        }
     };
 
     if (loading) return <p>Carregando...</p>;
@@ -167,43 +178,62 @@ const PesquisaExtensao = () => {
                             <tr key={projeto.id}>
                                 <td className="col-id">{index + 1}</td>
                                 <td className="col-titulo">
-                                    <div
-                                        contentEditable
-                                        suppressContentEditableWarning
-                                        onBlur={(e) => updateProjeto(projeto.id, 'titulo', e.target.innerText)}
-                                    >
-                                        {projeto.titulo}
-                                    </div>
+                                    {editMode === projeto.id ? (
+                                        <input
+                                            type="text"
+                                            value={projeto.titulo}
+                                            onChange={(e) => handleCellEdit(e, projeto.id, 'titulo')}
+                                            className="edit-input"
+                                        />
+                                    ) : (
+                                        projeto.titulo
+                                    )}
                                 </td>
                                 <td className="col-descricao">
-                                    <div
-                                        contentEditable
-                                        suppressContentEditableWarning
-                                        onBlur={(e) => updateProjeto(projeto.id, 'descricao', e.target.innerText)}
-                                    >
-                                        {projeto.descricao}
-                                    </div>
+                                    {editMode === projeto.id ? (
+                                        <input
+                                            type="text"
+                                            value={projeto.descricao}
+                                            onChange={(e) => handleCellEdit(e, projeto.id, 'descricao')}
+                                            className="edit-input"
+                                        />
+                                    ) : (
+                                        projeto.descricao
+                                    )}
                                 </td>
                                 <td className="col-data">
-                                    <div
-                                        contentEditable
-                                        suppressContentEditableWarning
-                                        onBlur={(e) => updateProjeto(projeto.id, 'dataInicio', e.target.innerText)}
-                                    >
-                                        {projeto.dataInicio ? projeto.dataInicio.split('T')[0] : ''}
-                                    </div>
+                                    {editMode === projeto.id ? (
+                                        <input
+                                            type="date"
+                                            value={projeto.dataInicio ? projeto.dataInicio.split('T')[0] : ''}
+                                            onChange={(e) => handleCellEdit(e, projeto.id, 'dataInicio')}
+                                            className="edit-input"
+                                        />
+                                    ) : (
+                                        projeto.dataInicio ? projeto.dataInicio.split('T')[0] : ''
+                                    )}
                                 </td>
                                 <td className="col-data">
-                                    <div
-                                        contentEditable
-                                        suppressContentEditableWarning
-                                        onBlur={(e) => updateProjeto(projeto.id, 'dataFim', e.target.innerText)}
-                                    >
-                                        {projeto.dataFim ? projeto.dataFim.split('T')[0] : ''}
-                                    </div>
+                                    {editMode === projeto.id ? (
+                                        <input
+                                            type="date"
+                                            value={projeto.dataFim ? projeto.dataFim.split('T')[0] : ''}
+                                            onChange={(e) => handleCellEdit(e, projeto.id, 'dataFim')}
+                                            className="edit-input"
+                                        />
+                                    ) : (
+                                        projeto.dataFim ? projeto.dataFim.split('T')[0] : ''
+                                    )}
                                 </td>
                                 <td className="col-acao">
-                                    <button onClick={() => deleteProjeto(projeto.id)} style={{ color: 'red' }}><FaTrash /></button>
+                                    <div className="icon-container">
+                                        {editMode === projeto.id ? (
+                                            <button onClick={() => handleSave(projeto.id)} className="icon-button" style={{ color: 'green' }}><FaCheck /></button>
+                                        ) : (
+                                            <button onClick={() => handleEdit(projeto.id)} className="icon-button" style={{ color: 'blue' }}><FaPencilAlt /></button>
+                                        )}
+                                        <button onClick={() => deleteProjeto(projeto.id)} className="icon-button" style={{ color: 'red' }}><FaTrash /></button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}

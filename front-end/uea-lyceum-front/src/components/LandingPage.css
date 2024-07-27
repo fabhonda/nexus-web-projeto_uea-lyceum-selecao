@@ -2,7 +2,7 @@
 
 .landing-page {
   font-family: Poppins, sans-serif;
-  color: #ffffff;
+  /* color: #ffffff; */
   align-items: start;
   justify-content: start; 
 }
@@ -13,7 +13,7 @@
   align-items: start;
   justify-content: start;
   width: 100vw;
-  background: white;
+  /* background: white; */
 }
 
 .section {
@@ -21,7 +21,6 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin: 40px 0; /* Adiciona espaçamento na parte superior e inferior */
   padding: 20px;
   /* border-radius: 10px; */
   box-sizing: border-box; 

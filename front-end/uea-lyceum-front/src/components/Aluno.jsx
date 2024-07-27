@@ -65,8 +65,24 @@ const Aluno = () => {
                     </div>
                 </div>
                 <div className="carteirinha-back">
-                    <h2>Verso da Carteirinha</h2>
-                    {/* Adicione aqui os dados adicionais que você quer mostrar no verso */}
+                    <h2 className='h2-carteira'>Verso da Carteirinha</h2>
+                    <div className="info-container">
+                        <div className="info">
+                            <p><span className="label">Código:</span> 495325734673</p>
+                        </div>
+                        <div className="info">
+                            <p><span className="label">Uso:</span> Este cartão é pessoal e intransferível.</p>
+                        </div>
+                        <div className="info">
+                            <p><span className="label">Validade:</span> Válido enquanto matriculado.</p>
+                        </div>
+                        <div className="info">
+                            <p><span className="label">Contato:</span> 123-456-7890</p>
+                        </div>
+                        <div className="info">
+                            <p><span className="label">Endereço:</span> Rua Exemplo, 123, Cidade, Estado</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

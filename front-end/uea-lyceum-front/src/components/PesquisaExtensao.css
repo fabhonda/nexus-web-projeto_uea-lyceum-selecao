@@ -1,3 +1,17 @@
+/* Importa a fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Aplica a fonte Poppins aos elementos da tabela e aos campos de edição */
+.pesquisa-extensao-table,
+.pesquisa-extensao-table th,
+.pesquisa-extensao-table td,
+.pesquisa-extensao-table input[type="text"],
+.pesquisa-extensao-table input[type="date"],
+.pesquisa-extensao-container div[contenteditable] {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Outros estilos */
 body.pesquisa-extensao-body {
     display: flex;
     justify-content: center;
@@ -7,7 +21,6 @@ body.pesquisa-extensao-body {
 }
 
 .pesquisa-extensao-container {
-    width: 80%;
     margin: 0 auto;
     text-align: center;
     color: #333;
@@ -19,7 +32,7 @@ body.pesquisa-extensao-body {
 }
 
 .pesquisa-extensao-table {
-    width: 100%;
+    /* width: 100%; */
     max-width: 1000px; /* Defina a largura máxima da tabela */
     border-collapse: collapse;
     margin: 20px auto; /* Centraliza horizontalmente */
@@ -73,7 +86,7 @@ body.pesquisa-extensao-body {
 }
 
 .chart-container {
-    width: 100%;
+    /* width: 100%; */
     max-width: 800px;
     margin: 20px auto;
 }
@@ -119,4 +132,33 @@ button {
 .date-input:focus {
     outline: none;
     border-bottom: 1px solid #333;
+}
+
+/* Estilo para inputs de edição */
+.pesquisa-extensao-table input[type="text"],
+.pesquisa-extensao-table input[type="date"] {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.pesquisa-extensao-table input[type="text"]:focus,
+.pesquisa-extensao-table input[type="date"]:focus {
+    outline: none;
+    border-bottom: 1px solid #333;
+}
+
+/* Estilo para o container de ícones */
+.icon-container {
+    display: flex;
+    gap: 5px;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }

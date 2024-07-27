@@ -32,6 +32,16 @@ public class ProjetoController {
         return projetoRepository.save(projeto);
     }
 
+    @PutMapping("/{id}")
+    public Projeto updateProjeto(@PathVariable Long id, @RequestBody Projeto projeto) {
+        Projeto existingProjeto = projetoRepository.findById(id).orElseThrow(() -> new RuntimeException("Projeto não encontrado"));
+        existingProjeto.setTitulo(projeto.getTitulo());
+        existingProjeto.setDescricao(projeto.getDescricao());
+        existingProjeto.setDataInicio(projeto.getDataInicio());
+        existingProjeto.setDataFim(projeto.getDataFim());
+        return projetoRepository.save(existingProjeto);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteProjeto(@PathVariable Long id) {
         projetoRepository.deleteById(id);
